@@ -1,0 +1,584 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy Light'), local('Gilroy-Light'), url('../fonts/Gilroylight.woff2') format('woff2'), url('../fonts/Gilroylight.woff') format('woff'), url('../fonts/Gilroylight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy ExtraBold'), local('Gilroy-ExtraBold'), url('../fonts/Gilroyextrabold.woff2') format('woff2'), url('../fonts/Gilroyextrabold.woff') format('woff'), url('../fonts/Gilroyextrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+$blue: #709dff;
+$rose: #c17afc;
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    background-image: linear-gradient(#ffffff, #d0bdf5);
+    background-size: 100% 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    animation: backgroundBorder 4s;
+
+    * {
+        font-family: 'Gilroy', sans-serif;
+    }
+}
+
+.enter-part {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInLong 6s;
+}
+
+h3 {
+    margin: 0;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+.fade-in-long {
+    animation: fadeInLong 1s;
+}
+
+.loading {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    animation: slideUp 4s, fadeInLong 1s;
+
+    h3 {
+        margin-top: -4px;
+        margin-right: 6px;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 44px;
+        line-height: 0.5em;
+    }
+}
+
+.tab {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+}
+
+.active {
+    display: flex;
+}
+
+.back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+    align-self: start;
+
+    .fa {
+        margin-right: 10px;
+    }
+
+    a {
+        font-size: 16px;
+        padding: 10px 0;
+        font-weight: 300;
+        color: #000000;
+        text-decoration: none;
+    }
+}
+
+.start-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 60%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input, button {
+            outline: none;
+            font-size: 20px;
+            font-weight: 300;
+            font-style: normal;
+            text-align: center;
+            width: 265px;
+            padding: 10px;
+            border-width: 0;
+            border-radius: 400px;
+            margin-bottom: 15px;
+            box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
+            background-color: #ffffff;
+
+            &::placeholder {
+                color: rgb(97, 97, 97);
+            }
+
+            &[type="submit"] {
+                background-image: linear-gradient(10deg, $rose, $rose 20%, $blue 80%, $blue 100%);
+                color: #ffffff;
+                width: 285px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    button {
+        outline: none;
+        font-size: 20px;
+        font-weight: 300;
+        font-style: normal;
+        text-align: center;
+        width: 265px;
+        padding: 20px;
+        border-width: 0;
+        border-radius: 400px;
+        margin-bottom: 25px;
+        box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
+        background-color: #ffffff;
+
+        &.enter {
+            background-image: linear-gradient(10deg, $rose, $rose 20%, $blue 80%, $blue 100%);
+            color: #ffffff;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.social-icons {
+
+    padding: 0 0 40px 0;
+    display: flex;
+    justify-content: center;
+
+    .icon {
+
+        margin-right: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .fa {
+            background: #2e6ab5;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            vertical-align: middle;
+            padding: 5px;
+            font-size: 22px;
+            color: #ffffff;
+            box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.12);
+            transition:  background-color 0.3s;
+        }
+
+        &.vk .fa {
+            background-color: #2e6ab5;
+        }
+
+        &.fb .fa {
+            background-color: #204bde;
+        }
+
+        &.tw .fa {
+            background-color: #4bcbf8;
+        }
+
+        &.gp .fa {
+            background-color: #ca1d02;
+        }
+        
+        &:hover .fa {
+            background-color: gray;
+        }
+    }
+}
+
+#map {
+    height: 100%;
+}
+
+@mixin animation ($delay, $duration, $animation, $direction: normal, $fillmode: forwards) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-direction: $direction;
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+}
+
+/////////////Scroll animation /////
+$colorBg: #ffffff;
+$colorOutline: linear-gradient($blue, $rose);
+$colorOutlineFade: #4e5559;
+
+$widthMouse: 129px;
+$heightMouse: 75px;
+$borderMouse: 22px;
+
+$posMouse: 8px;
+$posText: 2px;
+
+$sizeTrackball: 30px;
+$posTrackball: 27px;
+$shrinkTrackball: 0.4;
+
+$animDuration: 1.8s;
+
+
+@mixin bgGradient {
+    background: $colorOutline;
+}
+
+.scroll-tip {
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        margin-top: 25px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        text-align: center;
+        letter-spacing: 0.25em;
+
+
+        color: $colorOutline;
+        animation:
+            colorText $animDuration ease-out infinite,
+            nudgeText $animDuration ease-out infinite;
+    }
+
+    .mouse {
+        @include bgGradient;
+        position: relative;
+        width: $widthMouse;
+        height: $heightMouse;
+        border-radius: 100px;
+        background-size: 100% 100%;
+        animation: backgroundBorder $animDuration ease 1;
+        // animation:
+        //     colorSlide $animDuration linear infinite reverse,
+        //     nudgeMouse $animDuration ease-out infinite reverse;
+
+        &:before,
+        &:after,
+        span {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        &:before {
+            width: $widthMouse - $borderMouse;
+            height: $heightMouse - $borderMouse;
+            background-color: $colorBg;
+            border-radius: 100px;
+        }
+
+        &:after {
+            background-size: 100% 120%;
+            background-image: $colorOutline;
+            width: $sizeTrackball;
+            height: $sizeTrackball;
+            border-radius: 100%;
+            transform: translateX(-$posTrackball);
+            animation: trackBallSlide $animDuration ease 1;
+        }
+
+        span {
+            width: $sizeTrackball;
+            height: $sizeTrackball - 2;
+            transform: translateX($posTrackball - 18);
+            animation: fadeInOn $animDuration ease 1;
+            font-weight: 800;
+            font-style: normal;
+            font-size: 44px;
+            line-height: 0.5em;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLong {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30vh);
+    }
+
+    70% {
+        transform: translateY(30vh);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorSlide {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    20% {
+        background-position: 0% 0%;
+    }
+
+    21% {
+        background-color: $colorOutlineFade;
+    }
+
+    29.99% {
+        background-color: $colorOutline;
+        background-position: 0% 0%;
+    }
+
+    30% {
+        background-color: $colorOutlineFade;
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 0% 0%;
+    }
+
+    51% {
+        background-color: $colorOutlineFade;
+    }
+
+    59% {
+        background-color: $colorOutline;
+        background-position: 0% 0%;
+    }
+
+    60% {
+        background-color: $colorOutlineFade;
+        background-position: 0% 100%;
+    }
+
+    80% {
+        background-position: 0% 0%;
+    }
+
+    81% {
+        background-color: $colorOutlineFade;
+    }
+
+    90%,
+    100% {
+        background-color: $colorOutline;
+    }
+}
+
+@keyframes trackBallSlide {
+    0% {
+        opacity: 1;
+        transform: translateX($posTrackball);
+        background-size: 100% 800%;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX($posTrackball);
+        background-size: 100% 800%;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-$posTrackball);
+        background-size: 100% 120%;
+    }
+}
+
+@keyframes fadeInOn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(0);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX($posTrackball - 18);
+
+    }
+}
+
+@keyframes backgroundBorder {
+    0% {
+        background-size: 100% 400%;
+
+    }
+
+    50% {
+        background-size: 100% 400%;
+
+    }
+
+    100% {
+        background-size: 100% 100%;
+
+    }
+}
+
+@keyframes nudgeMouse {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY($posMouse);
+    }
+
+    30% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY($posMouse);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    80% {
+        transform: translateY($posMouse);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes nudgeText {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY($posText);
+    }
+
+    30% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY($posText);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    80% {
+        transform: translateY($posText);
+    }
+
+    90% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorText {
+    21% {
+        color: $colorOutlineFade;
+    }
+
+    30% {
+        color: $colorOutline;
+    }
+
+    51% {
+        color: $colorOutlineFade;
+    }
+
+    60% {
+        color: $colorOutline;
+    }
+
+    81% {
+        color: $colorOutlineFade;
+    }
+
+    90% {
+        color: $colorOutline;
+    }
+}

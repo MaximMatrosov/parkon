@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="stylesheet" href="dist/font-awesome.css">
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body>
+  <script src="jquery.min.js"></script>
+  <script src="site.js"></script>
+  <div class="loading fade-in-long">
+    <h3>Park</h3>
+    <div class="scroll-tip">
+      <div class="mouse">
+        <span>n</span>
+      </div>
+    </div>
+  </div>
+  <div class="enter-part">
+    <h4>Войдите, чтобы продолжить</h4>
+    <div class="start-menu">
+      <div class="tab active" id="menu">
+        <button class="enter" data-tab="login">Войти</button>
+        <button class="register" data-tab="register">Зарегистрироваться</button>
+      </div>
+      <div class="tab" id="login">
+        <div class="back">
+          <a data-tab="menu" href="#">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span>Назад</span>
+          </a>
+        </div>
+        <form>
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Пароль">
+          <button type="submit">Войти</button>
+        </form>
+      </div>
+      <div class="tab" id="register">
+        <div class="back">
+          <a data-tab="menu" href="#">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span>Назад</span>
+          </a>
+        </div>
+        <form>
+          <input type="email" name="email" placeholder="Email">          
+          <button type="submit">Зарегистрироваться</button>
+        </form>
+      </div>
+    </div>
+    <h4>Войти с помощью соцсетей</h4>
+    <div class="social-icons">
+      <a class="icon vk" href="#"><i class="fa fa-fw fa-vk" aria-hidden="true"></i></a>
+      <a class="icon fb" href="#"><i class="fa fa-fw fa-facebook"></i></a>
+      <a class="icon tw" href="#"><i class="fa fa-fw fa-twitter"></i></a>
+      <a class="icon gp" href="#"><i class="fa fa-fw fa-google-plus"></i></a>
+    </div>
+  </div>
+</body>
+
+</html>
