@@ -230,6 +230,20 @@ h4 {
     height: 100%;
 }
 
+.header, .footer {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
+        flex-basis: 80px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        z-index: 1000
+}
+
+.map-container {
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+
 @mixin animation ($delay, $duration, $animation, $direction: normal, $fillmode: forwards) {
     -webkit-animation-delay: $delay;
     -webkit-animation-duration: $duration;
