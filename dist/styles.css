@@ -105,13 +105,37 @@ h4 {
   justify-content: center;
   align-items: center;
   flex-basis: 60%;
+  flex-grow: 1;
+}
+.start-menu button, .start-menu a[role=button] {
+  outline: none;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  width: 265px;
+  padding: 20px;
+  border-width: 0;
+  border-radius: 400px;
+  margin-bottom: 25px;
+  box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
+  background-color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.start-menu button.enter, .start-menu a[role=button].enter {
+  background-image: linear-gradient(10deg, #c17afc, #c17afc 20%, #709dff 80%, #709dff 100%);
+  color: #ffffff;
+}
+.start-menu button:last-child, .start-menu a[role=button]:last-child {
+  margin-bottom: 0;
 }
 .start-menu form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.start-menu form input, .start-menu form button {
+.start-menu form input, .start-menu form button, .start-menu form a[role=button] {
   outline: none;
   font-size: 20px;
   font-weight: 300;
@@ -125,37 +149,20 @@ h4 {
   box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
   background-color: #ffffff;
 }
-.start-menu form input::placeholder, .start-menu form button::placeholder {
+.start-menu form input::placeholder, .start-menu form button::placeholder, .start-menu form a[role=button]::placeholder {
   color: #616161;
 }
-.start-menu form input[type=submit], .start-menu form button[type=submit] {
+.start-menu form input[type=submit], .start-menu form button[type=submit], .start-menu form a[role=button][type=submit] {
   background-image: linear-gradient(10deg, #c17afc, #c17afc 20%, #709dff 80%, #709dff 100%);
   color: #ffffff;
   width: 285px;
 }
-.start-menu form input:last-child, .start-menu form button:last-child {
+.start-menu form input:last-child, .start-menu form button:last-child, .start-menu form a[role=button]:last-child {
   margin-bottom: 0;
 }
-.start-menu button {
-  outline: none;
-  font-size: 20px;
-  font-weight: 300;
-  font-style: normal;
-  text-align: center;
-  width: 265px;
-  padding: 20px;
-  border-width: 0;
-  border-radius: 400px;
-  margin-bottom: 25px;
-  box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
-  background-color: #ffffff;
-}
-.start-menu button.enter {
+.start-menu form a[role=button] {
   background-image: linear-gradient(10deg, #c17afc, #c17afc 20%, #709dff 80%, #709dff 100%);
   color: #ffffff;
-}
-.start-menu button:last-child {
-  margin-bottom: 0;
 }
 
 .social-icons {
@@ -163,13 +170,14 @@ h4 {
   display: flex;
   justify-content: center;
 }
-.social-icons .icon {
+
+.icon {
   margin-right: 15px;
 }
-.social-icons .icon:last-child {
+.icon:last-child {
   margin-right: 0;
 }
-.social-icons .icon .fa {
+.icon .fa {
   background: #2e6ab5;
   width: 30px;
   height: 30px;
@@ -183,19 +191,19 @@ h4 {
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.12);
   transition: background-color 0.3s;
 }
-.social-icons .icon.vk .fa {
+.icon.vk .fa {
   background-color: #2e6ab5;
 }
-.social-icons .icon.fb .fa {
+.icon.fb .fa {
   background-color: #204bde;
 }
-.social-icons .icon.tw .fa {
+.icon.tw .fa {
   background-color: #4bcbf8;
 }
-.social-icons .icon.gp .fa {
+.icon.gp .fa {
   background-color: #ca1d02;
 }
-.social-icons .icon:hover .fa {
+.icon:hover .fa {
   background-color: gray;
 }
 
@@ -210,11 +218,74 @@ h4 {
   flex-grow: 0;
   flex-shrink: 0;
   z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.header .icon .fa, .footer .icon .fa {
+  background: gray;
+  transform: scale(0.8);
+}
+.header .icon.active .fa, .footer .icon.active .fa {
+  background: #000000;
+  transform: scale(1.1);
+}
+
+.logo {
+  width: 100px;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 34px;
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 .map-container {
   flex-basis: 300px;
   flex-grow: 1;
+  position: relative;
+}
+.map-container .over-map {
+  z-index: 1000;
+}
+.map-container h2 {
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: block;
+  background-color: #ffffffa3;
+}
+.map-container .home-container {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+.map-container a.home {
+  outline: none;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  width: 265px;
+  padding: 15px 75px;
+  border-width: 0;
+  border-radius: 400px;
+  box-shadow: 0px 5px 43.24px 2.76px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(10deg, #c17afc, #c17afc 20%, #709dff 80%, #709dff 100%);
+  color: #ffffff;
 }
 
 .scroll-tip {

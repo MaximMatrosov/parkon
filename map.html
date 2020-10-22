@@ -13,15 +13,24 @@
 <body>
     <script src="jquery.min.js"></script>
     <script src="leaflet/leaflet.js"></script>
-    <script src="site.js"></script>
     <script src="map.js"></script>
-    <div class="header"></div>
+    <div class="header"><h1>Парковки</h1><img class="logo" src="logo.png"></div>
     <div class="map-container">
+        <h2 class="over-map">Выберите парковку</h2>
         <div id="map">
-
+        </div>
+        <div class="home-container over-map">
+            <a role="button" class="home" href="/homemap.html" >Дом</a>
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <a class="icon active">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </a>
+        <a class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+    </div>
 </body>
 
 </html>
